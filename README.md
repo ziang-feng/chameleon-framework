@@ -34,7 +34,7 @@ To use Chameleon to build a website, webmasters only need to interact with the f
 > Stores files that can be downloaded by visitors (e.g. .pdf, .pptx).
 >
 
-### Meta file {#meta_file}
+### Meta file
 
 The meta file stores metadata for the website. The file is located at `/site/meta.json`.
 
