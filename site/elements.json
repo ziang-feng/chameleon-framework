@@ -1,0 +1,17 @@
+{
+    "title":"DEV page",
+    "content":[
+        {
+            "component":"HomeBanner",
+            "props":{}
+        },
+        {
+            "component":"Stats",
+            "props":{}
+        },
+        {
+            "component":"Stats",
+            "props":{}
+        }
+    ]
+}

@@ -1,31 +1,241 @@
 body {
-    width:100vw;
-    height:100vh;
-    overflow:auto;
-}
-#app{
-    width:100%;
+    height: 100vh;
+    overflow: auto;
 }
 
-header{
-    position: fixed;
+#page {
     width: 100%;
+    height: 100%;
 }
-nav{
-    height:4rem;
-    border-bottom: 1px solid #cfcfcf;
+
+.app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.nav-logo{
-    height:100%;
+
+header {
+    width: 100%;
+    position:fixed;
+    z-index:1000;
 }
-.nav-logo>img{
+
+footer {
+    background-color: var(--secondary);
+    color: var(--secondaryR);
+}
+
+nav {
+    background-color: var(--secondary);
+}
+
+.nav-container {
+    height: 4rem;
+}
+
+@media only screen and (min-width: 30rem) {
+    .nav-container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .breadcrumb-show {
+        padding-left: 1rem;
+    }
+}
+
+@media only screen and (max-width: 30rem) {
+    .footer-row-section {
+        flex: 1 1 auto !important;
+        border-bottom:1px solid var(--secondaryR);
+    }
+    .footer-row {
+        flex-direction: column !important;
+    }
+    .footer-container {
+        padding: 0.8rem!important;
+    }
+    .footer-link{
+        margin-left:0.5rem;
+    }
+    .footer-link-social{
+        margin-left:0.5rem;
+    }
+}
+
+.nav-logo {
+    height: 100%;
+}
+
+.nav-logo>img {
     max-height: 100%;
     padding: 0.5rem;
     width: auto;
     height: fit-content;
-    padding-left:1.5rem;
+    max-width: 15rem;
 }
-.nav-links{
-    margin-right:1.5rem;
-    margin-left:auto;
+
+.nav-links {
+    margin-left: auto;
+    color: var(--secondaryR);
+}
+
+.nav-links-btn {
+    font-size: 1rem;
+    font-family: var(--actionFont);
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.nav-expand-links-btn {
+    font-size: 1rem;
+    font-family: var(--actionFont);
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.nav-collapse {
+    transition: height 0.2s;
+    background-color: var(--primary);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.breadcrumb-hide {
+    height: 0.0625rem;
+    width: 100%;
+    background-color: var(--primaryR);
+}
+
+.breadcrumb-show {
+    height: 3rem;
+    width: 100%;
+    background-color: var(--highlight);
+    color: var(--highlightR);
+}
+
+.breadcrumb-show-trail-btn {
+    font-size: 1rem;
+    font-family: var(--actionFont);
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.breadcrumb-show-chevron-container {
+    width: 0.5rem;
+    max-width: 0.5rem;
+}
+
+.highlight-bg {
+    background-color: var(--highlight);
+    color: var(--highlightR)
+}
+
+.footer-container {
+    max-width: 100rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+}
+
+.footer-logo {
+    height: 3rem;
+    width: auto;
+}
+
+.footer-row {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-row-section {
+    flex: 0 1 50rem;
+    margin-right: 1rem;
+}
+
+.footer-link {
+    font-size: 0.9rem;
+    font-family: var(--actionFont);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-right: auto;
+}
+
+.footer-link-social {
+    font-size: 0.9rem;
+    font-family: var(--actionFont);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-right: auto;
+}
+
+.footer-cr {
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+/* fonts */
+.f-title{
+    font-family: var(--titleFont);
+}
+.f-text{
+    font-family: var(--textFont);
+}
+.f-action{
+    font-family: var(--actionFont);
+}
+
+/* utility */
+
+.fc-p {
+    color: var(--primary);
+}
+
+.fc-s {
+    color: var(--secondary);
+}
+
+.fc-h {
+    color: var(--highlight);
+}
+
+.fs-08 {
+    font-size: 0.8rem;
+}
+.fs-09 {
+    font-size: 0.9rem;
+}
+
+.op-05{
+    opacity: 0.5;
+}
+
+#fontRef {
+    font-size: 1rem !important;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--titleFont);
+}
+p{
+    font-family: var(--textFont);
+    line-height: 1.7 !important;
+}
+button{
+    font-family: var(--actionFont);
+}
+/* animation */
+@keyframes Spin{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.spin{
+    animation: Spin 2s infinite linear;
 }

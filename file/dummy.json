@@ -1,0 +1,9 @@
+{
+    "version":1,
+    "array":[1,2,3],
+    "props":{
+        "height":100,
+        "width":300,
+        "text":"Hello world"
+    }
+}
