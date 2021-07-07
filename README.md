@@ -13,7 +13,7 @@ To use Chameleon to build a website, webmasters only need to interact with the f
 
 #### `/site`
 >
-> File structure in this folder controls the site structure. Each JSON file (except for meta.json, detailed in the [Meta file](#meta_file) section) represents a web page.
+> File structure in this folder controls the site structure. Each JSON file (except for meta.json, detailed in the [Meta file](#meta-file) section) represents a web page.
 >
 > Some examples are shown bellow (Note that URL components are not encoded for demonstration purpose).
 > | File| Web page |
