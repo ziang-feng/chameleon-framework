@@ -1,0 +1,13 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextSection",
+            "props": {
+                "heading": "About Chameleon",
+                "sub": "Developed by Ziang Feng (ziang.feng@mail.utoronto.ca)",
+                "text": "Chameleon Framework is a JSON based web-builder framework for building simple informative websites. Instead of writing HTML files, webmasters only need to specify the content and layout for the web page in the respective JSON files. Navigations are automatically handled by the framework."
+            }
+        }
+    ]
+}

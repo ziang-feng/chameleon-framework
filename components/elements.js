@@ -153,13 +153,13 @@ export class TextSectionPair extends React.Component {
         return (
             <div className="bounding-box mb-component">
                 <div className="margin-responsive textSection-container padding-responsive textSectionPair-container">
-                    <div className="mr-3">
+                    <div className="mr-3 d-flex flex-column">
                         {this.props.first.heading ? <h3 className="mb-3">{this.props.first.heading}</h3> : null}
                         {this.props.first.sub ? <h5 className="mb-4">{this.props.first.sub}</h5> : null}
                         {this.props.first.text ? <p className="mb-3">{this.props.first.text}</p> : null}
                         {this.props.first.href ? <button className="mt-auto" onClick={() => { this.props.navigateHandler(encodeDirtyURL(this.props.first.href)) }}>Learn more <i className="fas fa-chevron-right fs-08 ml-2"></i></button> : null}
                     </div>
-                    <div className="mb-0">
+                    <div className="mb-0 d-flex flex-column">
                         {this.props.second.heading ? <h3 className="mb-3">{this.props.second.heading}</h3> : null}
                         {this.props.second.sub ? <h5 className="mb-4">{this.props.second.sub}</h5> : null}
                         {this.props.second.text ? <p className="mb-3">{this.props.second.text}</p> : null}

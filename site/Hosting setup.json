@@ -1,0 +1,20 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "What files to copy to the hosting server?",
+                "sub": "Copy these files and folders",
+                "texts": [
+                    "/js/main.bundle.js",
+                    "/css",
+                    "/site",
+                    "/file",
+                    "/img",
+                    "/index.html"
+                ]
+            }
+        }
+    ]
+}

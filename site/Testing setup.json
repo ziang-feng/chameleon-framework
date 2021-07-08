@@ -1,0 +1,20 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "Setup development environment (optional)",
+                "sub": "Follow these instructions",
+                "intro":"It is recommended to setup a simple HTTP server during testing to develop content for the website.",
+                "texts": [
+                    "To use the live-server from npm:",
+                    "- Run npm install -g live-server",
+                    "- After installation, run live-server --entry-file=index.html",
+                    "To use other HTTP servers:",
+                    "- Ensure that all traffic except for static files are routed to index.html"
+                ]
+            }
+        }
+    ]
+}

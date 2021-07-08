@@ -5,13 +5,43 @@
 
 Chameleon Framework is a JSON based web-builder framework for building simple informative websites. Instead of writing HTML files, webmasters only need to specify the content and layout for the web page in the respective JSON files. Navigations are automatically handled by the framework.
 
+## Environment setup
+
+### Setup testing environment
+
+It is recommended to setup a simple HTTP server during testing to develop content for the website.
+
+To use the [live-server](https://www.npmjs.com/package/live-server) from npm:
+
+- Run `npm install -g live-server`
+- After installation, run `live-server --entry-file=index.html`
+
+To use other HTTP servers:
+
+- Ensure that all traffic except for static files are routed to `index.html`
+
+### Setup development environment (optional)
+
+Run `npm install`
+
+Set `mode: 'development'` in `webpack.config.js` (make sure to set `mode: 'production'` for production builds)
+
+Run `npm run build` to build a new `main.bundle.js` after changes are made to any of the js files.
+
 ## Webmaster Manual
 
 ### Quick start guide
 
-Copy the following to `/site/meta.json`.
+The framework comes with a pre-built sample website. Feel free to explore and experiment with it!
 
-TODO
+### Files and folders to copy to the hosting server
+
+- `/css`
+- `/file`
+- `/img`
+- `/site`
+- `/index.html`
+- `/js/main.bundle.js`
 
 ### File structure
 
@@ -226,3 +256,424 @@ Examples:
 |---|---|
 |`/bg.png`|`/img/bg.png`|
 |`/people/leader.jpg`|`/img/people/leader.jpg`|
+
+### Components
+
+This section covers specifications of built-in components.
+
+Refer to the `/site/Components.json` file and `HOSTNAME/Components` web page to see rendered examples of all components.
+
+**Notes:**
+
+- **Not all props are required by components, allowing flexibilities.**
+
+- **All array length are flexible.**
+
+#### `HomeBanner`
+
+A banner that spans the entire width.
+
+```json
+{
+    "component": "HomeBanner",
+    "props": {
+        "bg-img": "",
+        "heading": "{heading}",
+        "text": "{text}",
+        "link": {
+            "label": "{link.label}",
+            "href": ""
+        }
+    }
+}
+```
+
+#### `Stats`
+
+Shows stats of multiple items.
+
+```json
+{
+    "component": "Stats",
+    "props": {
+        "stats": [
+            {
+                "number": "{number}",
+                "name": "{name}",
+                "href": ""
+            },
+            {
+                "number": "{number}",
+                "name": "{name}",
+                "href": ""
+            },
+            {
+                "number": "{number}",
+                "name": "{name}",
+                "href": ""
+            },
+            {
+                "number": "{number}",
+                "name": "{name}",
+                "href": ""
+            }
+        ]
+    }
+}
+```
+
+#### `Heading`
+
+A simple stand-alone heading.
+
+```json
+{
+    "component": "Heading",
+    "props": {
+        "heading": "{heading}"
+    }
+}
+```
+
+#### `ItemSummary`
+
+Shows summary of an item. Includes a link.
+
+```json
+{
+    "component": "ItemSummary",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "text": "{text}",
+        "href": "",
+        "img": ""
+    }
+}
+```
+
+#### `ItemSummaryGroup`
+
+Shows a group of `ItemSummary`. Margins between items are reduced.
+
+```json
+{
+    "component": "ItemSummaryGroup",
+    "props": {
+        "items": [
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "href": "",
+                "img": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "href": "",
+                "img": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "href": "",
+                "img": ""
+            }
+        ]
+    }
+}
+```
+
+#### `TextGroup`
+
+Shows a group of paragraphs.
+
+```json
+{
+    "component": "TextGroup",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "intro": "{intro}",
+        "texts": [
+            "{texts[0]}",
+            "{texts[1]}",
+            "{texts[2]}",
+            "{texts[3]}"
+        ]
+    }
+}
+```
+
+#### `TextSection`
+
+Shows a section of text with a link.
+
+```json
+{
+    "component": "TextSection",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "text": "{text}",
+        "href": "href"
+    }
+}
+```
+
+#### `TextSectionPair`
+
+Shows a pair of `TextSection` side-by-side.
+
+```json
+{
+    "component": "TextSectionPair",
+    "props": {
+        "first": {
+            "heading": "{first.heading}",
+            "sub": "{first.sub}",
+            "text": "{first.text}",
+            "href": "href"
+        },
+        "second": {
+            "heading": "{second.heading}",
+            "sub": "{second.sub}",
+            "text": "{second.text}",
+            "href": "href"
+        }
+    }
+}
+```
+
+#### `TextSectionImg`
+
+Shows a section of text with an image (without a link).
+
+(For components with text, image, and link, see [`ItemSummary`](#itemsummary))
+
+```json
+{
+    "component": "TextSectionImg",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "text": "{text}",
+        "img": ""
+    }
+}
+```
+
+#### `TextSectionImgGroup`
+
+Shows a group of `TextSectionImg`. Margins between items are reduced.
+
+```json
+{
+    "component": "TextSectionImgGroup",
+    "props": {
+        "sections": [
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "img": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "img": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "img": ""
+            }
+        ]
+    }
+}
+```
+
+#### `ItemGroup`
+
+Shows a group of items. Arranged in two columns.
+
+```json
+{
+    "component": "ItemGroup",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "items": [
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            }
+        ]
+    }
+}
+```
+
+#### `ItemGroupSummary`
+
+Shows a summary of `itemGroup`.
+
+```json
+{
+    "component": "ItemGroupSummary",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "text": "{text}",
+        "href":"",
+        "items": [
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            },
+            {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "img": "",
+                "href": ""
+            }
+        ]
+    }
+}
+```
+
+#### `PeopleGroup`
+
+For displaying information about people.
+
+```json
+{
+            "component": "PeopleGroup",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "people": [
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    }
+                ]
+            }
+        }
+```
+
+#### `LinkGroup`
+
+Shows a group of links.
+
+```json
+{
+    "component": "LinkGroup",
+    "props": {
+        "heading": "{heading}",
+        "sub": "{sub}",
+        "intro": "{intro}",
+        "links": [
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            },
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            },
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            },
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            },
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            },
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            },
+            {
+                "title": "{title}",
+                "sub": "{sub}",
+                "href": ""
+            }
+        ]
+    }
+}
+```

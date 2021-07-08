@@ -1,0 +1,13 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextSection",
+            "props": {
+                "heading": "Want more information?",
+                "sub": "Refer to README.md",
+                "text": "README.md provides detailed documentations."
+            }
+        }
+    ]
+}

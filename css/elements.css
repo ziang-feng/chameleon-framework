@@ -268,6 +268,7 @@
     padding-right: 30%;
     border-top: 0.125rem solid var(--primaryR) !important;
     color: var(--highlight) !important;
+    width: fit-content;
 }
 
 .textGroup-container {
@@ -434,24 +435,28 @@
 }
 
 .linkGroup-item {
-    margin-left:1.5rem;
-    padding:1rem;
-    margin-bottom:1rem;
+    margin-left: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
-.linkGroup-item h5{
+
+.linkGroup-item h5 {
     opacity: 1;
 }
-.linkGroup-item p{
-    font-size:1rem;
+
+.linkGroup-item p {
+    font-size: 1rem;
 }
-.linkGroup-item button{
+
+.linkGroup-item button {
     margin-top: 0.5rem;
     padding: 0.5rem;
     border-top: 0.125rem solid var(--primaryR)!important;
     color: var(--highlight) !important;
 }
+
 @media only screen and (max-width: 65rem) {
     .linkGroup-item {
-        margin-left:0rem;
+        margin-left: 0rem;
     }
 }

@@ -136,7 +136,7 @@ class Chameleon extends React.Component {
                     if (!componentRef.hasOwnProperty(element.component)) throw "Unknown component " + element.component;
                     TempComponent = componentRef[element.component];
 
-                    if (counter == 0 && !element.component.includes("Banner")) result.push(<div className="mb-4" key="top pusher" />); // margin between page top and first element
+                    if (counter == 0 && !element.component.includes("Banner")) result.push(<div className="mb-5" key="top pusher" />); // margin between page top and first element
 
                     result.push(<TempComponent {...element.props} key={counter} siteMeta={this.props.siteMeta} responsive={this.state.responsive} navigateHandler={this.navigateHandler} />);
                     counter++;
