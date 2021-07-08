@@ -4,7 +4,7 @@
         {
             "component": "HomeBanner",
             "props": {
-                "bg-img": "bg2.png",
+                "bg-img": "/bg2.png",
                 "heading": "City Logistics for the Urban Economy",
                 "text": "Urban informatics provides the technology foundation for understanding, planning and controlling complex urban transportation systems and is the foundation for all work undertaken within the iCity program.",
                 "link": {
@@ -57,19 +57,19 @@
                     {
                         "heading": "Ontology for Urban Modelling & Design",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Cyber-Physical Social ATIS Platform",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Ontology for Urban Modelling & Design",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     }
                 ]
@@ -82,7 +82,7 @@
                 "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                 "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
                 "href": "/Research Themes/Urban Informatics",
-                "img": "bg2.png"
+                "img": "/bg2.png"
             }
         },
         {
@@ -94,21 +94,21 @@
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                         "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
                         "href": "/Research Themes/Urban Informatics",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "heading": "Urban Informatics for Transportation Operations, Planning and Decision Making",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                         "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
                         "href": "/Research Themes/Urban Informatics",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "heading": "Urban Informatics for Transportation Operations, Planning and Decision Making",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                         "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
                         "href": "/Research Themes/Urban Informatics",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     }
                 ]
             }
@@ -160,7 +160,7 @@
                 "heading": "Urban Informatics for Transportation Operations, Planning and Decision Making",
                 "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                 "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
-                "img": "bg2.png"
+                "img": "/bg2.png"
             }
         },
         {
@@ -171,16 +171,16 @@
                         "heading": "Urban Informatics for Transportation Operations, Planning and Decision Making",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                         "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
                         "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "text": "The Transportation Planning Suite of Ontologies (TPSO) provides a common set of terms for unambiguously storing and accessing data. The TSPO are used to organize and describe data within the iCity project, and may be used as means of publishing or sharing data with the research community. The TPSO resolves ambiguities and disagreements between terms by defining a common set of concepts that captures the domain, with agreed-upon definitions. The precise and formal nature of the ontology supports the use of services such as question-answering, inference, and data validation. Based on the definitions, we are able to infer new information that was not originally part of the knowledge base. Mapping data from different projects into the ontology identifies relationships which uncover synergies between the projects, thus illustrating how data from one project may serve to inform the work of another.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     }
                 ]
             }
@@ -194,37 +194,37 @@
                     {
                         "heading": "Ontology for Urban Modelling & Design",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Cyber-Physical Social ATIS Platform",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Ontology for Urban Modelling & Design",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Ontology for Urban Modelling & Design",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Cyber-Physical Social ATIS Platform",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Ontology for Urban Modelling & Design",
                         "sub": "Led by Prof. Baher Abdullai & Prof. Mark Fox",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     }
                 ]
@@ -240,43 +240,43 @@
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     },
                     {
                         "name": "Eric J. Miller",
                         "title": "Principle Investigator, iCity",
                         "bio": "Professor Eric Miller is a pioneer in the development and application of agent-based microsimulation model systems in large urban contexts. As director of the University of Toronto Transportation Research Institute (UTTRI), his research is centered in the implementation of activity-based travel models for use in operational practice. This includes the development of integrated transportation-land use models that permit the analysis of the two-way interaction between transportation systems and urban form. His work serves to improve urban transportation best practices and policy decision-making and, thereby improves the quality of life in urban settings.",
-                        "img": "bg2.png"
+                        "img": "/bg2.png"
                     }
                 ]
             }

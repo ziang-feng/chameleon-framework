@@ -3,11 +3,11 @@
     "description":"",
     "version":"20210630",
     "nav":{
-        "logo":"clueFull.svg",
+        "logo":"/clueFull.svg",
         "links":["Research Themes","Projects","People","Publications","About"]
     },
     "footer":{
-        "logo":"clueFull.svg",
+        "logo":"/clueFull.svg",
         "primaryLinks":["Research Themes","Projects","People","Publications","About"],
         "secondaryLinks":["Papers","Events","Presentations","Contact us","Legal"],
         "socialMedia":{

@@ -1,0 +1,325 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "HomeBanner",
+            "props": {
+                "bg-img": "",
+                "heading": "{heading}",
+                "text": "{text}",
+                "link": {
+                    "label": "{link.label}",
+                    "href": ""
+                }
+            }
+        },
+        {
+            "component": "Stats",
+            "props": {
+                "stats": [
+                    {
+                        "number": "{number}",
+                        "name": "{name}",
+                        "href": ""
+                    },
+                    {
+                        "number": "{number}",
+                        "name": "{name}",
+                        "href": ""
+                    },
+                    {
+                        "number": "{number}",
+                        "name": "{name}",
+                        "href": ""
+                    },
+                    {
+                        "number": "{number}",
+                        "name": "{name}",
+                        "href": ""
+                    }
+                ]
+            }
+        },
+        {
+            "component": "Heading",
+            "props": {
+                "heading": "{heading}"
+            }
+        },
+        {
+            "component": "ItemGroupSummary",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "items": [
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    }
+                ]
+            }
+        },
+        {
+            "component": "ItemSummary",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "href": "",
+                "img": ""
+            }
+        },
+        {
+            "component": "ItemSummaryGroup",
+            "props": {
+                "items": [
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "text": "{text}",
+                        "href": "",
+                        "img": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "text": "{text}",
+                        "href": "",
+                        "img": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "text": "{text}",
+                        "href": "",
+                        "img": ""
+                    }
+                ]
+            }
+        },
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "intro": "{intro}",
+                "texts": [
+                    "{texts[0]}",
+                    "{texts[1]}",
+                    "{texts[2]}",
+                    "{texts[3]}"
+                ]
+            }
+        },
+        {
+            "component": "TextSection",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "href": "href"
+            }
+        },
+        {
+            "component": "TextSectionPair",
+            "props": {
+                "first": {
+                    "heading": "{first.heading}",
+                    "sub": "{first.sub}",
+                    "text": "{first.text}",
+                    "href": "href"
+                },
+                "second": {
+                    "heading": "{second.heading}",
+                    "sub": "{second.sub}",
+                    "text": "{second.text}",
+                    "href": "href"
+                }
+            }
+        },
+        {
+            "component": "TextSectionImg",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "text": "{text}",
+                "img": ""
+            }
+        },
+        {
+            "component": "TextSectionImgGroup",
+            "props": {
+                "sections": [
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "text": "{text}",
+                        "img": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "text": "{text}",
+                        "img": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "text": "{text}",
+                        "img": ""
+                    }
+                ]
+            }
+        },
+        {
+            "component": "ItemGroup",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "items": [
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    },
+                    {
+                        "heading": "{heading}",
+                        "sub": "{sub}",
+                        "img": "",
+                        "href": ""
+                    }
+                ]
+            }
+        },
+        {
+            "component": "PeopleGroup",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "people": [
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    },
+                    {
+                        "name": "{name}",
+                        "title": "{title}",
+                        "bio": "{bio}",
+                        "img": ""
+                    }
+                ]
+            }
+        },
+        {
+            "component": "LinkGroup",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "intro": "{intro}",
+                "links": [
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    },
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    },
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    },
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    },
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    },
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    },
+                    {
+                        "title": "{title}",
+                        "sub": "{sub}",
+                        "href": ""
+                    }
+                ]
+            }
+        }
+    ]
+}

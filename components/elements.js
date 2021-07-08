@@ -25,7 +25,7 @@ export class Alert extends React.Component {
 export class HomeBanner extends React.Component {
     render() {
         let bg = {}, textBg;
-        if (this.props["bg-img"]) bg = { backgroundImage: `url(/img/${this.props["bg-img"]})` };
+        if (this.props["bg-img"]) bg = { backgroundImage: `url(/img${this.props["bg-img"]})` };
         textBg = { backgroundColor: this.props.siteMeta.colors.primary + "cc" }
         return (
             <div className="homebanner-container mb-component" style={bg}>
@@ -67,7 +67,7 @@ export class Stats extends React.Component {
 }
 export class ItemSummary extends React.Component {
     render() {
-        let backgroundImage = this.props.img ? `url(/img/${this.props.img})` : "";
+        let backgroundImage = this.props.img ? `url(/img${this.props.img})` : "";
         return (
             <div className="bounding-box mb-component">
                 <div className="margin-responsive summary-container">
@@ -89,7 +89,7 @@ export class ItemSummaryGroup extends React.Component {
     render() {
         let items = [], counter = 0;
         for (let item of this.props.items) {
-            let backgroundImage = item.img ? `url(/img/${item.img})` : "";
+            let backgroundImage = item.img ? `url(/img${item.img})` : "";
             items.push(
                 <div className="margin-responsive summary-container" key={counter} style={counter != 0 ? { borderTop: "none" } : {}}>
                     <div className="summary-text">
@@ -172,7 +172,7 @@ export class TextSectionPair extends React.Component {
 }
 export class TextSectionImg extends React.Component {
     render() {
-        let backgroundImage = this.props.img ? `url(/img/${this.props.img})` : "";
+        let backgroundImage = this.props.img ? `url(/img${this.props.img})` : "";
         return (
             <div className="bounding-box mb-component">
                 <div className="margin-responsive textSectionImg-container padding-responsive">
@@ -191,7 +191,7 @@ export class TextSectionImgGroup extends React.Component {
     render() {
         let sections = [], counter = 0;
         for (let section of this.props.sections) {
-            let backgroundImage = section.img ? `url(/img/${section.img})` : "";
+            let backgroundImage = section.img ? `url(/img${section.img})` : "";
             sections.push(
                 <div className="margin-responsive textSectionImg-container padding-responsive" key={counter} style={counter != 0 ? { borderTop: "none" } : {}}>
                     {section.heading ? <h3 className="mb-3">{section.heading}</h3> : null}
@@ -215,7 +215,7 @@ export class ItemGroup extends React.Component {
     render() {
         let items = [], counter = 0;
         for (let item of this.props.items) {
-            let backgroundImage = item.img ? `url(/img/${item.img})` : "";
+            let backgroundImage = item.img ? `url(/img${item.img})` : "";
             items.push(
                 <div className="itemGroup-item d-flex flex-row" key={counter}>
                     <div className="summary-item-img" style={{ backgroundColor: "black", backgroundImage: backgroundImage }}></div>
@@ -246,7 +246,7 @@ export class ItemGroupSummary extends React.Component {
     render() {
         let items = [], counter = 0;
         for (let item of this.props.items) {
-            let backgroundImage = item.img ? `url(/img/${item.img})` : "";
+            let backgroundImage = item.img ? `url(/img${item.img})` : "";
             items.push(
                 <div className="summary-item d-flex flex-row" key={counter}>
                     <div className="summary-item-img" style={{ backgroundColor: "black", backgroundImage: backgroundImage }}></div>
@@ -281,7 +281,7 @@ export class PeopleGroup extends React.Component {
     render() {
         let people = [], counter = 0;
         for (let person of this.props.people) {
-            let backgroundImage = person.img ? `url(/img/${person.img})` : "";
+            let backgroundImage = person.img ? `url(/img${person.img})` : "";
             people.push(
                 <div className="peopleGroup-person d-flex flex-column" key={counter}>
                     <div className="d-flex flex-row mb-3">

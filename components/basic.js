@@ -65,7 +65,7 @@ export class Nav extends React.Component {
             <nav className="d-flex flex-column w-100">
                 <div className="d-flex flex-row w-100 nav-container">
                     <button className="nav-logo" onClick={() => { this.props.navigateHandler("/") }}>
-                        <img src={"/img/"+this.props.siteMeta.nav.logo} alt="logo" />
+                        <img src={"/img"+this.props.siteMeta.nav.logo} alt="logo" />
                     </button>
                     <div className="nav-links h-100 d-flex">
                         {navbarList}
@@ -194,7 +194,7 @@ export class Footer extends React.Component {
             <footer className="d-flex">
                 <div className="footer-container flex-grow-1">
                     <div className="footer-row">
-                        <img className="footer-logo mr-auto" src={"/img/"+this.props.siteMeta.footer.logo} alt="logo" />
+                        <img className="footer-logo mr-auto" src={"/img"+this.props.siteMeta.footer.logo} alt="logo" />
                     </div>
                     <div className="footer-row">
                         <div className="footer-row-section d-flex flex-column">

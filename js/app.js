@@ -91,6 +91,7 @@ class Chameleon extends React.Component {
     }
     navigateHandler(url) {
         // always use this function to handle navigating to another page
+        if (url=="") return;
         if (url.substring(0, 4).toLowerCase() == 'http') {
             window.open(url);
             return;

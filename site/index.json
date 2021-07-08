@@ -4,7 +4,7 @@
         {
             "component": "HomeBanner",
             "props": {
-                "bg-img": "bg2.png",
+                "bg-img": "/bg2.png",
                 "heading": "City Logistics for the Urban Economy",
                 "text": "Urban informatics provides the technology foundation for understanding, planning and controlling complex urban transportation systems and is the foundation for all work undertaken within the iCity program.",
                 "link": {
@@ -56,17 +56,17 @@
                 "items": [
                     {
                         "heading": "Ontology for Urban Modelling & Design",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Cyber-Physical Social ATIS Platform",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     },
                     {
                         "heading": "Ontology for Urban Modelling & Design",
-                        "img": "bg2.png",
+                        "img": "/bg2.png",
                         "href": "/Projects/Ontology for Urban Modelling & Design"
                     }
                 ]
