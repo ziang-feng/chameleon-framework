@@ -1,30 +1,80 @@
 import React from 'react';
 import $ from 'jquery';
-import { getTextWidth } from '../js/function.js'
+import { getTextWidth, hasSubnav, getSubnav } from '../js/function.js'
 
 export class Nav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            navExpand: false
+            navExpand: false,
+            subnavExpand: true,
+            subnavExpandGroups: []
         };
         this.toggleNav = this.toggleNav.bind(this);
+        this.toggleSubnav = this.toggleSubnav.bind(this);
     }
-    toggleNav() { this.setState({ navExpand: !this.state.navExpand }) }
+    toggleNav() {
+        if (!this.state.navExpand) {
+            // if nav is to be shown, expand the nav group that is selected
+            for (let nav of this.props.siteMeta.nav.links) {
+                if (typeof (nav) == "object" && this.isSelected(nav)) {
+                    this.setState({ subnavExpandGroups: [nav.name] });
+                    break;
+                }
+            }
+        }
+        else this.setState({ subnavExpandGroups: [] });
+        this.setState({ navExpand: !this.state.navExpand });
+    }
+    toggleSubnav(state = null) { this.setState({ subnavExpand: state ? state : !this.state.subnavExpand }) }
+    toggleSubnavExpandGroup(group) {
+        let org = this.state.subnavExpandGroups;
+        if (org.indexOf(group) == -1) org.push(group);
+        else org.splice(org.indexOf(group), 1);
+        this.setState({ subnavExpandGroups: org });
+    }
+    isSelected(nav) {
+        let selected = this.props.contentPath.length == 1 && this.props.contentPath[0] == nav;
+        if (typeof (nav) == "object") {
+            if (this.props.contentPath.length == 1) selected = this.props.contentPath[0] == nav.name;
+            if (this.props.contentPath.length == 2) selected = this.props.contentPath[0] == nav.name && nav.subs.includes(this.props.contentPath[1]);
+        }
+        return selected;
+    }
 
     parseNavList() {
-        let result = [];
+        let result = [], subnav = null;
 
         // get nav hide flag
-        let hideNav = this.navHideFlag();
+        let hideNav = this.props.shouldNavHide;
 
         // generate nav list
         if (!hideNav) {
             for (let nav of this.props.siteMeta.nav.links) {
-                let selected = this.props.contentPath.length == 1 && this.props.contentPath[0] == nav;
+                let selected = this.isSelected(nav);
+                let hasSub = false;
+                let navAction = () => {
+                    this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
+                };
 
+                if (typeof (nav) == "object") {
+                    if (selected) {
+                        subnav = nav.subs;
+                        navAction = () => {
+                            if (this.props.shouldSubnavHide) this.toggleSubnav();
+                        };
+                    }
+                    else {
+                        navAction = () => {
+                            this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
+                            this.toggleSubnav(true);
+                        };
+                    }
+                    nav = nav.name;
+                    hasSub = true;
+                }
                 result.push(
-                    <button className={`nav-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={() => { this.props.navigateHandler(`/${encodeURIComponent(nav)}`) }}>{nav}</button>
+                    <button className={`nav-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={navAction}>{nav}{hasSub ? <i className={`fas fa-chevron-${this.state.subnavExpand && selected ? "up" : "down"} nav-group-icon`}></i> : null}</button>
                 )
             }
         }
@@ -32,45 +82,111 @@ export class Nav extends React.Component {
             result = <button className="nav-links-btn" onClick={this.toggleNav}>Menu</button>
         }
 
-        return [result, hideNav];
+        return [result, hideNav, subnav];
+    }
+    parseSubnav(subnav) {
+        let result = [];
+        for (let nav of subnav) {
+            let selected = this.props.contentPath[1] == nav;
+            result.push(
+                <button className={`nav-sub-button ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={() => { this.props.navigateHandler(`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`) }}>{nav}</button>
+            )
+        }
+        return result;
     }
     parseNavExpandList() {
         let result = [];
 
         for (let nav of this.props.siteMeta.nav.links) {
-            let selected = this.props.contentPath.length == 1 && this.props.contentPath[0] == nav;
-
-            result.push(<button className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={() => {
+            let selected = this.isSelected(nav);
+            let subs = [];
+            let action = () => {
                 this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
                 this.toggleNav();
+            };
+
+            if (typeof (nav) == "object") {
+                subs = nav.subs;
+                nav = nav.name;
+                action = () => {
+                    this.toggleSubnavExpandGroup(nav);
+                };
+            }
+
+            result.push(<button className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={action}>{nav}{subs.length != 0 ? <i className={`fas fa-chevron-${this.state.subnavExpandGroups.indexOf(nav) != -1 ? "up" : "down"} nav-group-icon`}></i> : null}</button>);
+
+            if (subs.length != 0) {
+                let subButtons = [];
+
+                let counter = 0;
+                for (let sub of subs) {
+                    subButtons.push(<button className={`nav-expand-links-sub-btn ${this.props.contentPath[1] == sub ? 'highlight-bg' : ''}`} key={counter} onClick={() => {
+                        this.props.navigateHandler(`/${encodeURIComponent(nav)}/${encodeURIComponent(sub)}`);
+                        this.toggleNav();
+                    }}>{sub}</button>);
+                    counter++;
+                }
+                let height = 3.5 * subs.length + 0.125;
+                let style = this.state.subnavExpandGroups.includes(nav) ? { height: height + "rem", borderTop: "0.0625rem var(--secondary) solid", borderBottom: "0.0625rem var(--secondary) solid" } : { height: 0, borderTop: "0.0625rem var(--primary) solid", borderBottom: "0.0625rem var(--primary) solid" };
+                result.push(
+                    <div className="d-flex flex-column nav-expand-sub-container" key={nav + "exp"} style={style}>
+                        {subButtons}
+                    </div>
+                );
+            }
+        }
+
+        let subLength = this.state.subnavExpandGroups.length == 0 ? 0 : this.state.subnavExpandGroups.map((x) => { return getSubnav(x, this.props.siteMeta.nav.links).length }).reduce((a, b) => { return a + b });
+        let subsBorder = this.props.siteMeta.nav.links.map((x) => { return (typeof (x) == "object" ? 1 : 0) }).reduce((a, b) => { return a + b }) * 0.125;
+        return [result, 3.5 * (this.props.siteMeta.nav.links.length + subLength) + subsBorder];
+    }
+    parseSubnavExpandList(subnav) {
+        let result = [];
+
+        for (let nav of subnav) {
+            let selected = this.props.contentPath[1] == nav;
+
+            result.push(<button className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={() => {
+                this.props.navigateHandler(`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`);
+                this.toggleSubnav();
             }}>{nav}</button>);
         }
 
         // (item height + 2rem margin )* number of nav buttons
-        return [result, 3.5 * this.props.siteMeta.nav.links.length];
-    }
-    navHideFlag() {
-        // 3rem + logo max width (15rem) + nav link text width + nav link margins
-        let navWidth = getTextWidth(this.props.siteMeta.nav.links.join(''), `${this.props.responsive.rem}px "Open Sans", sans-serif`) / this.props.responsive.rem;
-        navWidth += this.props.siteMeta.nav.links.length * 2;
-        let totalWidth = 3 + 15 + navWidth;
-
-        return totalWidth > this.props.responsive.width;
+        return [result, 3.5 * subnav.length];
     }
     render() {
-        let [navbarList, hideNav] = this.parseNavList();
+        let [navbarList, hideNav, subnav] = this.parseNavList();
         let [navExpandList, navExpandHeight] = this.parseNavExpandList();
+        let subnavSection = null, subnavExpandList, subnavExpandHeight;
+        if (subnav) {
+            if (this.props.shouldSubnavHide) {
+                [subnavExpandList, subnavExpandHeight] = this.parseSubnavExpandList(subnav);
+            }
+            else subnavSection =
+                <div className="nav-sub">
+                    <div className="bounding-box padding-responsive">
+                        {this.parseSubnav(subnav)}
+                    </div>
+                </div>;
+        }
 
         return (
             <nav className="d-flex flex-column w-100">
                 <div className="d-flex flex-row w-100 nav-container">
                     <button className="nav-logo" onClick={() => { this.props.navigateHandler("/") }}>
-                        <img src={"/img"+this.props.siteMeta.nav.logo} alt="logo" />
+                        <img src={"/img" + this.props.siteMeta.nav.logo} alt="logo" />
                     </button>
                     <div className="nav-links h-100 d-flex">
                         {navbarList}
                     </div>
                 </div>
+                {subnavSection}
+                {
+                    <div className="nav-collapse" style={{ height: `${this.state.subnavExpand && this.props.shouldSubnavHide && !this.props.shouldNavHide ? subnavExpandHeight : 0}rem` }}>
+                        {this.props.shouldSubnavHide ? subnavExpandList : null}
+                    </div>
+                }
                 {
                     hideNav ?
                         <div className="nav-collapse" style={{ height: `${this.state.navExpand ? navExpandHeight : 0}rem` }}>
@@ -92,7 +208,7 @@ export class BreadCrumb extends React.Component {
     }
     shrinkFlag() {
         // 1rem left margin + trail link text width + trail link margins + chervon width
-        let trailWidth = getTextWidth(this.props.contentPath.join('') + "Home", `${this.props.responsive.rem}px "Open Sans", sans-serif`) / this.props.responsive.rem;
+        let trailWidth = getTextWidth(this.props.contentPath.join('') + "Home", `${this.props.responsive.rem}px "${this.props.siteMeta.font.action}", sans-serif`) / this.props.responsive.rem;
         trailWidth += (this.props.contentPath.length + 1) * 2;
         let chervonWidth = this.props.contentPath.length * 0.5;
 
@@ -113,13 +229,18 @@ export class BreadCrumb extends React.Component {
             // screen narrow, only show last level
             let contentPath = [...this.props.contentPath];
             contentPath.unshift("Home");
-            let linkURL = '';
-            if (contentPath.slice(-2)[0] == "Home") linkURL = "/";
-            else linkURL = `/${encodeURIComponent(contentPath.slice(-2)[0])}`;
+            let linkURL = '', last = contentPath.slice(-2)[0];
+            if (last == "Home") linkURL = "/";
+            else linkURL = this.getTrailURL(last);
+
+            let action = () => {
+                this.props.navigateHandler(linkURL);
+            };
+
             return (
                 <div className="breadcrumb-show-trail-btn d-flex flex-row">
                     <div className="my-auto breadcrumb-show-chevron-container mr-2"><i className="fas fa-caret-left fs-08 my-auto"></i></div>
-                    <button className="" onClick={() => { this.props.navigateHandler(linkURL) }}>{`Back to ${contentPath.slice(-2)[0]}`}</button>
+                    <button className="" onClick={action}>{`Back to ${contentPath.slice(-2)[0]}`}</button>
                 </div>
             );
         }
@@ -137,10 +258,10 @@ export class BreadCrumb extends React.Component {
 
     }
     render() {
-        if (!this.props.contentPath.length || (this.props.contentPath.length == 1 && this.props.siteMeta.nav.links.includes(this.props.contentPath[0]))) {
-            // either on home page or on pages in navbar, hide breadcrumb
+        if (!this.props.shouldBreadcrumbShow) {
+
             return (
-                <div className="breadcrumb-hide" />
+                <div className={!this.props.shouldSubnavHide && (this.props.contentPath.length == 2 && hasSubnav(this.props.contentPath[0], this.props.siteMeta.nav.links)) ? "" : "breadcrumb-hide"} />
             )
         }
         else {
@@ -194,7 +315,7 @@ export class Footer extends React.Component {
             <footer className="d-flex">
                 <div className="footer-container flex-grow-1">
                     <div className="footer-row">
-                        <img className="footer-logo mr-auto" src={"/img"+this.props.siteMeta.footer.logo} alt="logo" />
+                        <img className="footer-logo mr-auto" src={"/img" + this.props.siteMeta.footer.logo} alt="logo" />
                     </div>
                     <div className="footer-row">
                         <div className="footer-row-section d-flex flex-column">

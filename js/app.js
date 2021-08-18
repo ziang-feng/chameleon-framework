@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import { Nav, Footer, BreadCrumb } from "../components/basic.js";
-import { Alert, HomeBanner, Stats, ItemGroupSummary, ItemSummaryGroup, Heading, ItemSummary, TextGroup, TextSection, TextSectionPair, TextSectionImg, TextSectionImgGroup, ItemGroup, PeopleGroup, LinkGroup } from "../components/elements.js";
-import { invertColor } from './function.js';
+import { Alert, HomeBanner, Stats, ItemGroupSummary, ItemSummaryGroup, Heading, ItemSummary, TextGroup, TextSection, TextSectionPair, TextSectionImg, TextSectionImgGroup, ItemGroup, PeopleGroup, LinkGroup, TextSectionTabs,TextImgCascade,ImgRow } from "../components/elements.js";
+import { invertColor, hasSubnav, getSubnav, getTextWidth } from './function.js';
 
 const componentRef = {
-    "Alert": Alert,
-    "HomeBanner": HomeBanner,
-    "Stats": Stats,
-    "ItemSummaryGroup": ItemSummaryGroup,
-    "Heading": Heading,
+    Alert: Alert,
+    HomeBanner: HomeBanner,
+    Stats: Stats,
+    ItemSummaryGroup: ItemSummaryGroup,
+    Heading: Heading,
     ItemSummary: ItemSummary,
     TextGroup: TextGroup,
     TextSection: TextSection,
@@ -20,7 +20,10 @@ const componentRef = {
     ItemGroup: ItemGroup,
     ItemGroupSummary: ItemGroupSummary,
     PeopleGroup: PeopleGroup,
-    LinkGroup: LinkGroup
+    LinkGroup: LinkGroup,
+    TextSectionTabs: TextSectionTabs,
+    TextImgCascade:TextImgCascade,
+    ImgRow:ImgRow
 }
 
 class Chameleon extends React.Component {
@@ -39,20 +42,51 @@ class Chameleon extends React.Component {
         this.navigateHandler = this.navigateHandler.bind(this);
         this.URLUpdateHandler = this.URLUpdateHandler.bind(this);
         this.fetchPage = this.fetchPage.bind(this);
-
+        this.shouldBreadcrumbShow = this.shouldBreadcrumbShow.bind(this);
     }
     componentDidMount() {
-        this.responsiveUpdate();
-        this.URLUpdateHandler();
         window.addEventListener('resize', this.responsiveUpdate);
         window.addEventListener('locationchange', this.URLUpdateHandler);
+        this.responsiveUpdate();
+        this.URLUpdateHandler();
         this.fetchPage(this.state.contentPath.join("/"));
     }
     componentDidUpdate(prevProps, prevState) {
         if (JSON.stringify(prevState.contentPath) != JSON.stringify(this.state.contentPath)) {
             // navigtate to new page, fetch new page
             this.fetchPage(this.state.contentPath.join("/"));
+            this.setState({ pageJSON: "" });
         }
+    }
+    shouldNavHide() {
+        // 3rem + logo max width (15rem) + nav link text width + nav link margins
+        let texts = "", subs = 0;
+        for (let nav of this.props.siteMeta.nav.links) {
+            texts += typeof (nav) == "object" ? nav.name : nav;
+            if (typeof (nav) == "object") subs += 1;
+        }
+        let navWidth = getTextWidth(texts, `${this.state.responsive.rem}px "${this.props.siteMeta.font.action}", sans-serif`) / this.state.responsive.rem;
+        navWidth += this.props.siteMeta.nav.links.length * 2 + 1.5 * subs;
+        let totalWidth = 3 + 15 + navWidth;
+
+        return totalWidth > this.state.responsive.width;
+    }
+    shouldSubnavHide() {
+        // 2rem + nav link text width + nav link margins
+        let subs = getSubnav(this.state.contentPath[0], this.props.siteMeta.nav.links);
+        if (!subs) return null;
+        let subnavWidth = getTextWidth(subs.join(""), `${this.state.responsive.rem}px "${this.props.siteMeta.font.action}", sans-serif`) / this.state.responsive.rem;
+        subnavWidth += subs.length * 2;
+        let totalWidth = 2 + subnavWidth;
+
+        return totalWidth > this.state.responsive.width || totalWidth > 100;
+    }
+    shouldBreadcrumbShow() {
+        // either on home page or on pages in navbar or nav has sub menu, hide breadcrumb
+        let hideFlg = !this.state.contentPath.length || (this.state.contentPath.length == 1 && this.props.siteMeta.nav.links.includes(this.state.contentPath[0])) || (this.state.contentPath.length == 2 && hasSubnav(this.state.contentPath[0], this.props.siteMeta.nav.links) && getSubnav(this.state.contentPath[0], this.props.siteMeta.nav.links).includes(this.state.contentPath[1]));
+        // if nav is hidden, show breadcrumb
+        if (this.shouldNavHide() && this.state.contentPath.length) return true;
+        return !hideFlg;
     }
     parseFilePath(path) {
         if (!path) return "index.json";
@@ -91,7 +125,7 @@ class Chameleon extends React.Component {
     }
     navigateHandler(url) {
         // always use this function to handle navigating to another page
-        if (url=="") return;
+        if (url == "") return;
         if (url.substring(0, 4).toLowerCase() == 'http') {
             window.open(url);
             return;
@@ -103,6 +137,15 @@ class Chameleon extends React.Component {
             window.open("./file" + realPath);
             return;
         }
+        if (url.split("/").length == 2) {
+            // rewrite url for nav that has sub nav
+            let urlList = url.split("/");
+            if (this.props.siteMeta.nav.links.map((x) => { return x.name }).includes(urlList[1])) {
+                let subs = getSubnav(urlList[1], this.props.siteMeta.nav.links);
+                urlList.push(subs[0]);
+            }
+            url = urlList.join("/");
+        }
         if (window.location.pathname == url) return;
         window.history.pushState(Date.now(), "", url);
     }
@@ -113,15 +156,19 @@ class Chameleon extends React.Component {
         let contentPath = pathname.split("/");
         if (contentPath[0]) document.title = this.props.siteMeta.title + ' - ' + decodeURIComponent(contentPath[contentPath.length - 1]);
         else document.title = this.props.siteMeta.title;
+        if (contentPath.length == 1 && hasSubnav(contentPath[0], this.props.siteMeta.nav.links)) {
+            this.navigateHandler("/" + pathname);
+            return;
+        }
         // set new path and reset page json
-        this.setState({ contentPath: pathname.split("/")[0] ? pathname.split("/").map(decodeURIComponent) : [], pageJSON: "" });
-        window.scrollTo(0,0);
+        this.setState({ contentPath: pathname.split("/")[0] ? pathname.split("/").map(decodeURIComponent) : [] });
+        window.scrollTo(0, 0);
     }
     parseHeader() {
         return (
             <header>
-                <Nav siteMeta={this.props.siteMeta} responsive={this.state.responsive} contentPath={this.state.contentPath} navigateHandler={this.navigateHandler} />
-                <BreadCrumb siteMeta={this.props.siteMeta} responsive={this.state.responsive} contentPath={this.state.contentPath} navigateHandler={this.navigateHandler} />
+                <Nav siteMeta={this.props.siteMeta} responsive={this.state.responsive} contentPath={this.state.contentPath} navigateHandler={this.navigateHandler} shouldBreadcrumbShow={this.shouldBreadcrumbShow()} shouldNavHide={this.shouldNavHide()} shouldSubnavHide={this.shouldSubnavHide()} />
+                <BreadCrumb siteMeta={this.props.siteMeta} responsive={this.state.responsive} contentPath={this.state.contentPath} navigateHandler={this.navigateHandler} shouldBreadcrumbShow={this.shouldBreadcrumbShow()} shouldNavHide={this.shouldNavHide()} shouldSubnavHide={this.shouldSubnavHide()} />
             </header>
         );
     }
@@ -136,7 +183,7 @@ class Chameleon extends React.Component {
                     if (!componentRef.hasOwnProperty(element.component)) throw "Unknown component " + element.component;
                     TempComponent = componentRef[element.component];
 
-                    if (counter == 0 && !element.component.includes("Banner")) result.push(<div className="mb-5" key="top pusher" />); // margin between page top and first element
+                    if (counter == 0 && !element.component.includes("Banner")) result.push(<div className="mb-3" key="top pusher" />); // margin between page top and first element
 
                     result.push(<TempComponent {...element.props} key={counter} siteMeta={this.props.siteMeta} responsive={this.state.responsive} navigateHandler={this.navigateHandler} />);
                     counter++;
@@ -153,11 +200,19 @@ class Chameleon extends React.Component {
         }
         result.push(<div className="mb-auto" key="pusher" />);
 
-        let topPadding = ""; // compute the top padding 
-        if (!this.state.contentPath.length || (this.state.contentPath.length == 1 && this.props.siteMeta.nav.links.includes(this.state.contentPath[0]))) topPadding = "4.0625rem"; // no breadcrumb
-        else topPadding = "7rem";
+        let topPadding = 4; // compute the top padding 
+        if (!this.shouldBreadcrumbShow()) topPadding += 0.0625; // no breadcrumb
+        else topPadding += 3;
 
-        result.unshift(<div style={{ marginBottom: topPadding }} key="fixed narbar padding" />); // padding for the fixed navbar and breadcrumb
+        if (!this.shouldNavHide()) {
+            let dir = this.state.contentPath[0];
+            let subs = getSubnav(dir, this.props.siteMeta.nav.links);
+            if (subs && !this.shouldSubnavHide() && this.state.contentPath.length == 2) {
+                if (subs.includes(this.state.contentPath[1])) topPadding += 2.5; // subnav shown
+            }
+        }
+
+        result.unshift(<div style={{ marginBottom: topPadding + "rem" }} key="fixed narbar padding" />); // padding for the fixed navbar and breadcrumb
         return (
             <ErrorBoundary key={this.state.contentPath.join("/")}>
                 {result}

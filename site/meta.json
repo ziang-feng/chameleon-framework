@@ -4,7 +4,7 @@
     "version":"1.0",
     "nav":{
         "logo":"/chameleon.png",
-        "links":["About","Testing setup", "Development setup"]
+        "links":[{"name":"Group","subs":["Freight Data Warehouse (FDW), Data Collection and Data Science Applications","Logistics Network Design for New E-commerce Delivery Models","City Logistics Pilot Studies"]},"About","Testing setup", "Development setup"]
     },
     "footer":{
         "logo":"/chameleon.png",

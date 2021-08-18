@@ -37,13 +37,20 @@ export function getTextWidth(text, font) {
     return metrics.width;
 };
 
-export function encodeDirtyURL(url){
+export function encodeDirtyURL(url) {
     let proto = url.substring(0, 4).toLowerCase();
     if (proto == 'http') return url;
-    if (proto == 'file'){
+    if (proto == 'file') {
         let regexp = /FILE\((.+)\)/;
         let realPath = url.match(regexp)[1];
         return `FILE(${realPath.split("/").map(encodeURIComponent).join("/")})`;
     }
-    return url.split("/").map(encodeURIComponent).join("/");
+    let urlList = url.split("/");
+    return urlList.map(encodeURIComponent).join("/");
+}
+export function hasSubnav(nav, navs) {
+    return navs.map((x) => { return x.name == nav }).reduce((a, b) => { return a || b });
+}
+export function getSubnav(nav, navs) {
+    return navs.map((x) => { return x.name == nav ? x.subs : false }).reduce((a, b) => { return a || b });
 }

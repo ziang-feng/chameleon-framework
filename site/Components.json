@@ -10,6 +10,10 @@
                 "link": {
                     "label": "{link.label}",
                     "href": ""
+                },
+                "imgCredit": {
+                    "credit": "Photo by Someone via Somewhere",
+                    "href": ""
                 }
             }
         },
@@ -41,18 +45,14 @@
             }
         },
         {
-            "component": "Heading",
-            "props": {
-                "heading": "{heading}"
-            }
-        },
-        {
             "component": "ItemGroupSummary",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "text": "{text}",
-                "href":"",
+                "href": "",
                 "items": [
                     {
                         "heading": "{heading}",
@@ -64,7 +64,11 @@
                         "heading": "{heading}",
                         "sub": "{sub}",
                         "img": "",
-                        "href": ""
+                        "href": "",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
                     },
                     {
                         "heading": "{heading}",
@@ -82,12 +86,18 @@
                 "sub": "{sub}",
                 "text": "{text}",
                 "href": "",
-                "img": ""
+                "img": "",
+                "imgCredit": {
+                    "credit": "Photo by Someone via Somewhere",
+                    "href": ""
+                }
             }
         },
         {
             "component": "ItemSummaryGroup",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "items": [
                     {
                         "heading": "{heading}",
@@ -101,7 +111,11 @@
                         "sub": "{sub}",
                         "text": "{text}",
                         "href": "",
-                        "img": ""
+                        "img": "",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
                     },
                     {
                         "heading": "{heading}",
@@ -116,6 +130,8 @@
         {
             "component": "TextGroup",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "intro": "{intro}",
@@ -159,12 +175,18 @@
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "text": "{text}",
-                "img": ""
+                "img": "",
+                "imgCredit": {
+                    "credit": "Photo by Someone via Somewhere",
+                    "href": ""
+                }
             }
         },
         {
             "component": "TextSectionImgGroup",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "sections": [
                     {
                         "heading": "{heading}",
@@ -182,7 +204,11 @@
                         "heading": "{heading}",
                         "sub": "{sub}",
                         "text": "{text}",
-                        "img": ""
+                        "img": "",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
                     }
                 ]
             }
@@ -190,6 +216,8 @@
         {
             "component": "ItemGroup",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "items": [
@@ -215,7 +243,11 @@
                         "heading": "{heading}",
                         "sub": "{sub}",
                         "img": "",
-                        "href": ""
+                        "href": "",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
                     },
                     {
                         "heading": "{heading}",
@@ -235,6 +267,8 @@
         {
             "component": "PeopleGroup",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "people": [
@@ -280,6 +314,8 @@
         {
             "component": "LinkGroup",
             "props": {
+                "superHeading":"superHeading",
+                "collapsible":true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "intro": "{intro}",
@@ -319,6 +355,52 @@
                         "sub": "{sub}",
                         "href": ""
                     }
+                ]
+            }
+        },
+        {
+            "component": "TextSectionTabs",
+            "props": {
+                "heading": "{heading}",
+                "sub": "{sub}",
+                "tabs":[
+                    {"name":"tab name","content":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
+                    {"name":"tab name","content":"Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park."}
+                ]
+            }
+        },
+        {
+            "component":"TextImgCascade",
+            "props":{
+                "heading": "{heading}",
+                "superHeading": "superHeading",
+                "collapsible":true,
+                "sub": "{sub}",
+                "cascade":[
+                    {"type":"text","text":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
+                    {"type":"image","title":"Food truck fixie locavore","src":"/sample.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"type":"text","text":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
+                    {"type":"image","title":"Food truck fixie locavore","src":"/sample.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"type":"text","text":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
+                    {"type":"image","title":"Food truck fixie locavore","src":"/sample.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}}
+                ]
+            }
+        },
+        {
+            "component":"ImgRow",
+            "props":{
+                "heading": "{heading}",
+                "superHeading": "superHeading",
+                "collapsible":true,
+                "sub": "{sub}",
+                "images":[
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
+                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}}
                 ]
             }
         }

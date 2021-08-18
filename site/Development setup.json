@@ -7,7 +7,7 @@
                 "heading": "Setup development environment (optional)",
                 "sub": "Follow these instructions",
                 "texts": [
-                    "Run npm install",
+                    {"__html":"Run <b>npm install</b>"},
                     "Set mode: 'development' in webpack.config.js (make sure to set mode: 'production' for production builds)",
                     "Run npm run build to build a new main.bundle.js after changes are made to any of the js files."
                 ]

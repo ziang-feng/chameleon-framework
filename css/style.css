@@ -17,8 +17,8 @@ body {
 
 header {
     width: 100%;
-    position:fixed;
-    z-index:1000;
+    position: fixed;
+    z-index: 1000;
 }
 
 footer {
@@ -28,6 +28,8 @@ footer {
 
 nav {
     background-color: var(--secondary);
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 .nav-container {
@@ -47,7 +49,7 @@ nav {
 @media only screen and (max-width: 30rem) {
     .footer-row-section {
         flex: 1 1 auto !important;
-        border-bottom:1px solid var(--secondaryR);
+        border-bottom: 1px solid var(--secondaryR);
     }
     .footer-row {
         flex-direction: column !important;
@@ -55,22 +57,24 @@ nav {
     .footer-container {
         padding: 0.8rem!important;
     }
-    .footer-link{
-        margin-left:0.5rem;
+    .footer-link {
+        margin-left: 0.5rem;
     }
-    .footer-link-social{
-        margin-left:0.5rem;
+    .footer-link-social {
+        margin-left: 0.5rem;
     }
 }
 
 .nav-logo {
     height: 100%;
+    width:15rem;
 }
 
 .nav-logo>img {
     max-height: 100%;
     padding: 0.5rem;
-    width: auto;
+    width: auto; 
+    height: -webkit-fill-available;
     height: fit-content;
     max-width: 15rem;
 }
@@ -93,14 +97,48 @@ nav {
     padding-left: 1.5rem;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.nav-expand-links-sub-btn {
+    font-size: 1rem;
+    font-family: var(--actionFont);
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.nav-expand-sub-container {
+    background-color: var(--secondary);
+    color: var(--secondaryR);
+    transition: height 0.2s;
+    overflow: hidden;
+    flex-shrink: 0;
+    overflow-x: hidden;
 }
 
 .nav-collapse {
     transition: height 0.2s;
     background-color: var(--primary);
-    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
+}
+
+.nav-group-icon {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    width: 1rem;
+}
+
+.nav-sub {
+    border-top: 0.0625rem solid var(--primaryR) !important;
+}
+
+.nav-sub-button {
+    padding: 0.5rem 1rem;
+    font-family: var(--actionFont);
 }
 
 .breadcrumb-hide {
@@ -114,6 +152,7 @@ nav {
     width: 100%;
     background-color: var(--highlight);
     color: var(--highlightR);
+    white-space: nowrap;
 }
 
 .breadcrumb-show-trail-btn {
@@ -179,13 +218,16 @@ nav {
 }
 
 /* fonts */
-.f-title{
+
+.f-title {
     font-family: var(--titleFont);
 }
-.f-text{
+
+.f-text {
     font-family: var(--textFont);
 }
-.f-action{
+
+.f-action {
     font-family: var(--actionFont);
 }
 
@@ -206,29 +248,45 @@ nav {
 .fs-08 {
     font-size: 0.8rem;
 }
+
 .fs-09 {
     font-size: 0.9rem;
 }
 
-.op-05{
+.op-05 {
     opacity: 0.5;
+}
+
+.pos-r{
+    position:relative;
+}
+.pos-f{
+    position: fixed;
+}
+.pos-a{
+    position: absolute;
 }
 
 #fontRef {
     font-size: 1rem !important;
 }
-h1,h2,h3,h4,h5,h6{
+
+h1, h2, h3, h4, h5, h6 {
     font-family: var(--titleFont);
 }
-p{
+
+p {
     font-family: var(--textFont);
     line-height: 1.7 !important;
 }
-button{
+
+button {
     font-family: var(--actionFont);
 }
+
 /* animation */
-@keyframes Spin{
+
+@keyframes Spin {
     0% {
         transform: rotate(0deg);
     }
@@ -236,6 +294,7 @@ button{
         transform: rotate(360deg);
     }
 }
-.spin{
+
+.spin {
     animation: Spin 2s infinite linear;
 }
