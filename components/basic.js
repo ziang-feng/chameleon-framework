@@ -53,33 +53,42 @@ export class Nav extends React.Component {
             for (let nav of this.props.siteMeta.nav.links) {
                 let selected = this.isSelected(nav);
                 let hasSub = false;
-                let navAction = () => {
-                    this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
+                let navAction = (e) => {
+                    if (e.button == 0) {
+                        e.preventDefault();
+                        this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
+                    }
                 };
 
                 if (typeof (nav) == "object") {
                     if (selected) {
                         subnav = nav.subs;
-                        navAction = () => {
-                            if (this.props.shouldSubnavHide) this.toggleSubnav();
+                        navAction = (e) => {
+                            if (e.button == 0) {
+                                e.preventDefault();
+                                if (this.props.shouldSubnavHide) this.toggleSubnav();
+                            }
                         };
                     }
                     else {
-                        navAction = () => {
-                            this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
-                            this.toggleSubnav(true);
+                        navAction = (e) => {
+                            if (e.button == 0) {
+                                e.preventDefault();
+                                this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
+                                this.toggleSubnav(true);
+                            }
                         };
                     }
                     nav = nav.name;
                     hasSub = true;
                 }
                 result.push(
-                    <button className={`nav-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={navAction}>{nav}{hasSub ? <i className={`fas fa-chevron-${this.state.subnavExpand && selected ? "up" : "down"} nav-group-icon`}></i> : null}</button>
+                    <a className={`nav-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={navAction} href={`/${encodeURIComponent(nav)}`}>{nav}{hasSub ? <i className={`fas fa-chevron-${this.state.subnavExpand && selected ? "up" : "down"} nav-group-icon`}></i> : null}</a>
                 )
             }
         }
         else {
-            result = <button className="nav-links-btn" onClick={this.toggleNav}>Menu</button>
+            result = <button className="nav-links-btn" onClick={this.toggleNav} aria-label={`${this.state.navExpand ? "Close" : "Expand"} Navigation menu`}>Menu</button>
         }
 
         return [result, hideNav, subnav];
@@ -89,7 +98,12 @@ export class Nav extends React.Component {
         for (let nav of subnav) {
             let selected = this.props.contentPath[1] == nav;
             result.push(
-                <button className={`nav-sub-button ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={() => { this.props.navigateHandler(`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`) }}>{nav}</button>
+                <a href={`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`} className={`nav-sub-button ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={(e) => {
+                    if (e.button == 0) {
+                        e.preventDefault();
+                        this.props.navigateHandler(`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`)
+                    }
+                }}>{nav}</a>
             )
         }
         return result;
@@ -100,37 +114,47 @@ export class Nav extends React.Component {
         for (let nav of this.props.siteMeta.nav.links) {
             let selected = this.isSelected(nav);
             let subs = [];
-            let action = () => {
-                this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
-                this.toggleNav();
+            let isSubExpanded;
+            let action = (e) => {
+                if (e.button == 0) {
+                    e.preventDefault();
+                    this.props.navigateHandler(`/${encodeURIComponent(nav)}`);
+                    this.toggleNav();
+                }
             };
 
             if (typeof (nav) == "object") {
                 subs = nav.subs;
                 nav = nav.name;
+                isSubExpanded = this.state.subnavExpandGroups.includes(nav);
                 action = () => {
                     this.toggleSubnavExpandGroup(nav);
                 };
+                result.push(<button className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={action} aria-label={`${isSubExpanded ? "Close" : "Expand"} sub navigation menu under ${nav}`}>{nav}{subs.length != 0 ? <i className={`fas fa-chevron-${this.state.subnavExpandGroups.indexOf(nav) != -1 ? "up" : "down"} nav-group-icon`}></i> : null}</button>);
             }
-
-            result.push(<button className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={action}>{nav}{subs.length != 0 ? <i className={`fas fa-chevron-${this.state.subnavExpandGroups.indexOf(nav) != -1 ? "up" : "down"} nav-group-icon`}></i> : null}</button>);
+            else {
+                result.push(<a className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={action} href={`/${encodeURIComponent(nav)}`}>{nav}</a>);
+            }
 
             if (subs.length != 0) {
                 let subButtons = [];
 
                 let counter = 0;
                 for (let sub of subs) {
-                    subButtons.push(<button className={`nav-expand-links-sub-btn ${this.props.contentPath[1] == sub ? 'highlight-bg' : ''}`} key={counter} onClick={() => {
-                        this.props.navigateHandler(`/${encodeURIComponent(nav)}/${encodeURIComponent(sub)}`);
-                        this.toggleNav();
-                    }}>{sub}</button>);
+                    subButtons.push(<a className={`nav-expand-links-sub-btn ${this.props.contentPath[1] == sub ? 'highlight-bg' : ''}`} key={counter} href={`/${encodeURIComponent(nav)}/${encodeURIComponent(sub)}`} onClick={(e) => {
+                        if (e.button == 0) {
+                            e.preventDefault();
+                            this.props.navigateHandler(`/${encodeURIComponent(nav)}/${encodeURIComponent(sub)}`);
+                            this.toggleNav();
+                        }
+                    }}>{sub}</a>);
                     counter++;
                 }
                 let height = 3.5 * subs.length + 0.125;
                 let style = this.state.subnavExpandGroups.includes(nav) ? { height: height + "rem", borderTop: "0.0625rem var(--secondary) solid", borderBottom: "0.0625rem var(--secondary) solid" } : { height: 0, borderTop: "0.0625rem var(--primary) solid", borderBottom: "0.0625rem var(--primary) solid" };
                 result.push(
-                    <div className="d-flex flex-column nav-expand-sub-container" key={nav + "exp"} style={style}>
-                        {subButtons}
+                    <div className="d-flex flex-column nav-expand-sub-container" key={nav + "exp"} style={style} aria-label={isSubExpanded ? `Expanded sub navigation menu under ${this.props.contentPath[0]}` : null}>
+                        {isSubExpanded ? subButtons : null}
                     </div>
                 );
             }
@@ -146,10 +170,13 @@ export class Nav extends React.Component {
         for (let nav of subnav) {
             let selected = this.props.contentPath[1] == nav;
 
-            result.push(<button className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} key={nav} onClick={() => {
-                this.props.navigateHandler(`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`);
-                this.toggleSubnav();
-            }}>{nav}</button>);
+            result.push(<a className={`nav-expand-links-btn ${selected ? 'highlight-bg' : ''}`} href={`/${encodeURIComponent(nav)}`} key={nav} onClick={(e) => {
+                if (e.button == 0) {
+                    e.preventDefault();
+                    this.props.navigateHandler(`/${encodeURIComponent(this.props.contentPath[0])}/${encodeURIComponent(nav)}`);
+                    this.toggleSubnav();
+                }
+            }}>{nav}</a>);
         }
 
         // (item height + 2rem margin )* number of nav buttons
@@ -164,7 +191,7 @@ export class Nav extends React.Component {
                 [subnavExpandList, subnavExpandHeight] = this.parseSubnavExpandList(subnav);
             }
             else subnavSection =
-                <div className="nav-sub">
+                <div className="nav-sub" aria-label={`Expanded sub navigation menu under ${this.props.contentPath[0]}`}>
                     <div className="bounding-box padding-responsive">
                         {this.parseSubnav(subnav)}
                     </div>
@@ -174,9 +201,14 @@ export class Nav extends React.Component {
         return (
             <nav className="d-flex flex-column w-100">
                 <div className="d-flex flex-row w-100 nav-container">
-                    <button className="nav-logo" onClick={() => { this.props.navigateHandler("/") }}>
-                        <img src={"/img" + this.props.siteMeta.nav.logo} alt="logo" />
-                    </button>
+                    <a className="nav-logo" onClick={(e) => {
+                        if (e.button == 0) {
+                            e.preventDefault();
+                            this.props.navigateHandler("/")
+                        }
+                    }} aria-label="Go to homepage" href={"/"}>
+                        <img src={"/img" + this.props.siteMeta.nav.logo} alt="logo for the website" />
+                    </a>
                     <div className="nav-links h-100 d-flex">
                         {navbarList}
                     </div>
@@ -240,17 +272,30 @@ export class BreadCrumb extends React.Component {
             return (
                 <div className="breadcrumb-show-trail-btn d-flex flex-row">
                     <div className="my-auto breadcrumb-show-chevron-container mr-2"><i className="fas fa-caret-left fs-08 my-auto"></i></div>
-                    <button className="" onClick={action}>{`Back to ${contentPath.slice(-2)[0]}`}</button>
+                    <a className="" onClick={action}>{`Back to ${contentPath.slice(-2)[0]}`}</a>
                 </div>
             );
         }
         else {
-            result.push(<button className="breadcrumb-show-trail-btn" key="Home" onClick={() => { this.props.navigateHandler("/") }}>Home</button>); // add trail for home page
+            result.push(<a className="breadcrumb-show-trail-btn" key="Home" onClick={(e) => {
+                if (e.button == 0) {
+                    e.preventDefault(); this.props.navigateHandler("/")
+                }
+            }} href={"/"}>Home</a>); // add trail for home page
 
             for (let trail of this.props.contentPath) {
                 let trailURL = this.getTrailURL(trail);
+
                 result.push(<div className="my-auto breadcrumb-show-chevron-container" key={`${trail}_chevron`}><i className="fas fa-chevron-right fs-08 my-auto"></i></div>); // add divider
-                result.push(<button className="breadcrumb-show-trail-btn" key={trail} onClick={() => { trailURL ? this.props.navigateHandler(trailURL) : null }}>{trail}</button>); // add trail
+
+                result.push(<a className="breadcrumb-show-trail-btn" href={trailURL} key={trail} onClick={(e) => {
+                    if (e.button == 0) {
+                        e.preventDefault();
+                        trailURL ?
+                            this.props.navigateHandler(trailURL)
+                            : null
+                    }
+                }}>{trail}</a>); // add trail
             }
             return result;
         }
@@ -267,7 +312,7 @@ export class BreadCrumb extends React.Component {
         else {
             // show breadcrumb
             return (
-                <div className="breadcrumb-show d-flex">
+                <div className="breadcrumb-show d-flex" aria-label="Breadcrumb trails">
                     {this.parseBreadcrumb()}
                 </div>
             )
@@ -286,7 +331,12 @@ export class Footer extends React.Component {
     parseLinkSection(links) {
         let result = [];
         for (let link of links) {
-            result.push(<button className='footer-link' key={link} onClick={() => { this.props.navigateHandler(`/${encodeURIComponent(link)}`) }}>{link}</button>);
+            result.push(<a className='footer-link' key={link} href={`/${encodeURIComponent(link)}`} onClick={(e) => {
+                if (e.button == 0) {
+                    e.preventDefault();
+                    this.props.navigateHandler(`/${encodeURIComponent(link)}`)
+                }
+            }}>{link}</a>);
         }
         return result;
     }
@@ -302,10 +352,10 @@ export class Footer extends React.Component {
             let link = this.props.siteMeta.footer.socialMedia[k];
             if (!link) continue;
             result.push(
-                <button className='footer-link-social d-flex flex-row' key={k} onClick={() => { window.open(link) }}>
+                <a className='footer-link-social d-flex flex-row' key={k} href={link}>
                     {iconRef[k]}
                     <div className="">{k}</div>
-                </button>
+                </a>
             );
         }
         return result;

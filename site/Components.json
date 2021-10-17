@@ -24,7 +24,7 @@
                     {
                         "number": "{number}",
                         "name": "{name}",
-                        "href": ""
+                        "href": "/About"
                     },
                     {
                         "number": "{number}",
@@ -47,8 +47,8 @@
         {
             "component": "ItemGroupSummary",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "text": "{text}",
@@ -85,7 +85,7 @@
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "text": "{text}",
-                "href": "",
+                "href": "FILE(/dummy.json)",
                 "img": "",
                 "imgCredit": {
                     "credit": "Photo by Someone via Somewhere",
@@ -96,8 +96,8 @@
         {
             "component": "ItemSummaryGroup",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "items": [
                     {
                         "heading": "{heading}",
@@ -130,8 +130,8 @@
         {
             "component": "TextGroup",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "intro": "{intro}",
@@ -185,8 +185,8 @@
         {
             "component": "TextSectionImgGroup",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "sections": [
                     {
                         "heading": "{heading}",
@@ -216,8 +216,8 @@
         {
             "component": "ItemGroup",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "items": [
@@ -267,8 +267,8 @@
         {
             "component": "PeopleGroup",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "people": [
@@ -276,7 +276,13 @@
                         "name": "{name}",
                         "title": "{title}",
                         "bio": "{bio}",
-                        "img": ""
+                        "img": "",
+                        "links": [
+                            {"label":"Link 1", "href":""},
+                            {"label":"Link 2", "href":""},
+                            {"label":"Link 3", "href":""},
+                            {"label":"Link 4", "href":""}
+                        ]
                     },
                     {
                         "name": "{name}",
@@ -314,8 +320,8 @@
         {
             "component": "LinkGroup",
             "props": {
-                "superHeading":"superHeading",
-                "collapsible":true,
+                "superHeading": "superHeading",
+                "collapsible": true,
                 "heading": "{heading}",
                 "sub": "{sub}",
                 "intro": "{intro}",
@@ -363,44 +369,132 @@
             "props": {
                 "heading": "{heading}",
                 "sub": "{sub}",
-                "tabs":[
-                    {"name":"tab name","content":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
-                    {"name":"tab name","content":"Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park."}
+                "tabs": [
+                    {
+                        "name": "tab name",
+                        "content": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+                    },
+                    {
+                        "name": "tab name",
+                        "content": "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park."
+                    }
                 ]
             }
         },
         {
-            "component":"TextImgCascade",
-            "props":{
+            "component": "TextImgCascade",
+            "props": {
                 "heading": "{heading}",
                 "superHeading": "superHeading",
-                "collapsible":true,
+                "collapsible": true,
                 "sub": "{sub}",
-                "cascade":[
-                    {"type":"text","text":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
-                    {"type":"image","title":"Food truck fixie locavore","src":"/sample.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"type":"text","text":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
-                    {"type":"image","title":"Food truck fixie locavore","src":"/sample.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"type":"text","text":"Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."},
-                    {"type":"image","title":"Food truck fixie locavore","src":"/sample.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}}
+                "cascade": [
+                    {
+                        "type": "text",
+                        "text": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+                    },
+                    {
+                        "type": "image",
+                        "title": "Food truck fixie locavore",
+                        "src": "/sample.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+                    },
+                    {
+                        "type": "image",
+                        "title": "Food truck fixie locavore",
+                        "src": "/sample.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "text": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+                    },
+                    {
+                        "type": "image",
+                        "title": "Food truck fixie locavore",
+                        "src": "/sample.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    }
                 ]
             }
         },
         {
-            "component":"ImgRow",
-            "props":{
+            "component": "ImgRow",
+            "props": {
                 "heading": "{heading}",
                 "superHeading": "superHeading",
-                "collapsible":true,
+                "collapsible": true,
                 "sub": "{sub}",
-                "images":[
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}},
-                    {"title":"Food truck fixie locavore","src":"/chameleon.png","imgCredit":{"credit": "Photo by Someone via Somewhere","href": ""}}
+                "images": [
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    },
+                    {
+                        "title": "Food truck fixie locavore",
+                        "src": "/chameleon.png",
+                        "imgCredit": {
+                            "credit": "Photo by Someone via Somewhere",
+                            "href": ""
+                        }
+                    }
                 ]
             }
         }

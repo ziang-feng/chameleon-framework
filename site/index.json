@@ -10,6 +10,10 @@
                 "link": {
                     "label": "Learn more",
                     "href": "/About"
+                },
+                "imgCredit": {
+                    "credit": "Learn more",
+                    "href": "/About"
                 }
             }
         },
@@ -37,7 +41,8 @@
                 "sub": "Go to this page to see all rendered built-in components.",
                 "text": "To see the order of components rendered on page, refer to the /site/Components.json file. This will speedup your development process. Have fun!",
                 "href": "/Components",
-                "img": "/sample.png"
+                "img": "/sample.png",
+                "alt":"sample image"
             }
         }
         

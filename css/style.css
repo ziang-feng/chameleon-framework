@@ -31,6 +31,9 @@ nav {
     max-height: 100vh;
     overflow-y: auto;
 }
+a:hover{
+    text-decoration: none;
+}
 
 .nav-container {
     height: 4rem;
@@ -89,6 +92,9 @@ nav {
     font-family: var(--actionFont);
     padding-right: 1rem;
     padding-left: 1rem;
+    color:var(--secondaryR);
+    align-items: center;
+    display: flex;
 }
 
 .nav-expand-links-btn {
@@ -98,6 +104,7 @@ nav {
     padding-top: 1rem;
     padding-bottom: 1rem;
     white-space: nowrap;
+    color:var(--primaryR);
 }
 
 .nav-expand-links-sub-btn {
@@ -107,6 +114,7 @@ nav {
     padding-top: 1rem;
     padding-bottom: 1rem;
     white-space: nowrap;
+    color:var(--secondaryR);
 }
 
 .nav-expand-sub-container {
@@ -139,6 +147,8 @@ nav {
 .nav-sub-button {
     padding: 0.5rem 1rem;
     font-family: var(--actionFont);
+    display: inline-block;
+    color:var(--secondaryR);
 }
 
 .breadcrumb-hide {
@@ -160,6 +170,9 @@ nav {
     font-family: var(--actionFont);
     padding-right: 1rem;
     padding-left: 1rem;
+    align-items: center;
+    display: flex;
+    color:var(--highlightR);
 }
 
 .breadcrumb-show-chevron-container {
@@ -202,6 +215,7 @@ nav {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-right: auto;
+    color:var(--secondaryR);
 }
 
 .footer-link-social {
@@ -210,6 +224,7 @@ nav {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-right: auto;
+    color:var(--secondaryR);
 }
 
 .footer-cr {
@@ -281,6 +296,10 @@ p {
 }
 
 button {
+    font-family: var(--actionFont);
+}
+
+a {
     font-family: var(--actionFont);
 }
 

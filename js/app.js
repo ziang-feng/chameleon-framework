@@ -303,7 +303,7 @@ async function loadPage() {
     });
     let data = await result.json();
     let version = data.version;
-
+    document.querySelector('meta[name="description"]').setAttribute("content", data.description);
 
     // make sure new css is fetched for every new version
     loadCSS("/css/style.css", version);
