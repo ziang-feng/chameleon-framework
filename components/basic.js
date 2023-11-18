@@ -265,14 +265,17 @@ export class BreadCrumb extends React.Component {
             if (last == "Home") linkURL = "/";
             else linkURL = this.getTrailURL(last);
 
-            let action = () => {
-                this.props.navigateHandler(linkURL);
+            let action = (e) => {
+                if (e.button == 0) {
+                    e.preventDefault();
+                    this.props.navigateHandler(linkURL);;
+                }
             };
 
             return (
                 <div className="breadcrumb-show-trail-btn d-flex flex-row">
                     <div className="my-auto breadcrumb-show-chevron-container mr-2"><i className="fas fa-caret-left fs-08 my-auto"></i></div>
-                    <a className="" onClick={action}>{`Back to ${contentPath.slice(-2)[0]}`}</a>
+                    <a className="breadcrumb-show-trail-btn" onClick={action} href={`/${encodeURIComponent(linkURL)}`}>{`Back to ${contentPath.slice(-2)[0]}`}</a>
                 </div>
             );
         }
