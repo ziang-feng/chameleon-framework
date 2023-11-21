@@ -8,13 +8,22 @@
                 "heading": "Welcome to Chameleon Framework!",
                 "text": "Chameleon Framework is a JSON based web-builder framework for building simple informative websites.",
                 "link": {
-                    "label": "Learn more",
-                    "href": "/About"
+                    "label": "Go to Github Repo",
+                    "href": "https://github.com/ziang-feng/chameleon-framework"
                 },
                 "imgCredit": {
-                    "credit": "Learn more",
-                    "href": "/About"
+                    "credit": "Github Repo",
+                    "href": "https://github.com/ziang-feng/chameleon-framework"
                 }
+            }
+        },
+        {
+            "component": "TextSection",
+            "props": {
+                "heading": "Production setup",
+                "sub": "Setup a production website hosting server",
+                "text": "Scripts to setup an Apache HTTP Server Docker container to host this website are included. You can also choose other HTTP servers for hosting.",
+                "href": "/Production setup"
             }
         },
         {

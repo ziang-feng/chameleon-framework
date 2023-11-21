@@ -1,22 +1,22 @@
 {
     "title":"Chameleon",
     "description":"testing sandbox",
-    "version":"1.0",
+    "version":"1.1",
     "nav":{
         "logo":"/chameleon.png",
-        "links":[{"name":"Group","subs":["Freight Data Warehouse (FDW), Data Collection and Data Science Applications","Logistics Network Design for New E-commerce Delivery Models","City Logistics Pilot Studies"]},"About","Testing setup", "Development setup"]
+        "links":["About",{"name":"Modify","subs":["Modify the framework","License information"]},"Production setup","Testing setup", "Development setup"]
     },
     "footer":{
         "logo":"/chameleon.png",
         "primaryLinks":["About","Testing setup", "Development setup"],
-        "secondaryLinks":["Components","Hosting setup", "More info"],
+        "secondaryLinks":["Components","Production setup", "More info"],
         "socialMedia":{
             "Facebook":"https://www.facebook.com/",
             "LinkedIn":"https://www.linkedin.com/",
             "Twitter":"https://www.twitter.com/",
             "YouTube":"https://www.youtube.com/"
         },
-        "copyright":"Copyright © 2021 Chameleon. All rights reserved."
+        "copyright":"Copyright © 2021 Ziang Feng. All rights reserved."
     },
     "colors": {
         "primary": "#ffffff",

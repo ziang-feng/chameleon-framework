@@ -1,0 +1,16 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "Modify the framework",
+                "sub": "Follow these instructions",
+                "texts": [
+                    "This framework is developed in React, prior knowledge in React is recommended.",
+                    "After any React js files are changed, you need to regenerate the main.bundle.js file. Run 'npm run build'. Remember to copy this new file to the server for the changes to take effect."
+                ]
+            }
+        }
+    ]
+}

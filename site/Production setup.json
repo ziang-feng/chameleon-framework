@@ -1,0 +1,33 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "Setup a Docker container for hosting (Recommended)",
+                "sub": "Scripts to setup an Apache HTTP Server Docker container to host this website are included",
+                "texts": [
+                    {"__html":"Run the included <b>setup-docker.sh</b> script to setup a containerized Apache HTTP Server for hosting."},
+                    {"__html":"When the website files are changed, run the <b>update-site-docker.sh</b> script to update the server with the newer files. Remember to update the version number in meta.json!"}
+                ]
+            }
+        },
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "Setup other HTTP servers",
+                "sub": "You can also use other HTTP servers",
+                "texts": [
+                    "Copy these files and folders under the website root folder:",
+                    "/js/main.bundle.js",
+                    "/css",
+                    "/site",
+                    "/file",
+                    "/img",
+                    "/index.html",
+                    "Remeber to setup routing rules such that URLs (except for those for static files and index.html) are routed to index.html."
+                ]
+            }
+        }
+    ]
+}
