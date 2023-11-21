@@ -4,7 +4,7 @@
     "version":"1.1",
     "nav":{
         "logo":"/chameleon.png",
-        "links":["About",{"name":"Modify","subs":["Modify the framework","License information"]},"Production setup","Testing setup", "Development setup"]
+        "links":["About",{"name":"Modify","subs":["Modify the framework","License information","Collaborate"]},"Production setup","Testing setup", "Development setup"]
     },
     "footer":{
         "logo":"/chameleon.png",
@@ -12,7 +12,7 @@
         "secondaryLinks":["Components","Production setup", "More info"],
         "socialMedia":{
             "Facebook":"https://www.facebook.com/",
-            "LinkedIn":"https://www.linkedin.com/",
+            "LinkedIn":"https://www.linkedin.com/in/ziang-feng/",
             "Twitter":"https://www.twitter.com/",
             "YouTube":"https://www.youtube.com/"
         },

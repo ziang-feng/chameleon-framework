@@ -1,0 +1,15 @@
+{
+    "title": "",
+    "content": [
+        {
+            "component": "TextGroup",
+            "props": {
+                "heading": "Collaborate with the author",
+                "sub": "Contact the author",
+                "texts": [
+                    "https://www.linkedin.com/in/ziang-feng/"
+                ]
+            }
+        }
+    ]
+}
