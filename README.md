@@ -5,7 +5,25 @@
 
 Chameleon Framework is a JSON based web-builder framework for building simple informative websites. Instead of writing HTML files, webmasters only need to specify the content and layout for the web page in the respective JSON files. Navigations are automatically handled by the framework.
 
-## Environment setup
+## Deployment
+
+### Setup production environment
+
+Setup a Docker container for hosting (Recommended):
+
+- Run the included `setup-docker.sh` script to setup a containerized Apache HTTP Server for hosting
+- When the website files are changed, run the `update-site-docker.sh` script to update the server with the newer files. Remember to update the version number in meta.json!
+
+Setup other HTTP servers:
+
+- Copy these files and folders under the website root folder:
+- `/css`
+- `/file`
+- `/img`
+- `/site`
+- `/index.html`
+- `/js/main.bundle.js`
+- Remeber to setup routing rules such that URLs (except for those for static files and index.html) are routed to index.html.
 
 ### Setup testing environment
 
@@ -18,7 +36,7 @@ To use the [live-server](https://www.npmjs.com/package/live-server) from npm:
 
 To use other HTTP servers:
 
-- Ensure that all traffic except for static files are routed to `index.html`
+- Remeber to setup routing rules such that URLs (except for those for static files and index.html) are routed to index.html.
 
 ### Setup development environment (optional)
 
