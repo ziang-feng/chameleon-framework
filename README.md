@@ -13,7 +13,7 @@ It is recommended to setup a simple HTTP server during testing to develop conten
 
 To use the [live-server](https://www.npmjs.com/package/live-server) from npm:
 
-- Run `npm install -g live-server`
+- Run `npm install --no-save live-server`
 - After installation, run `live-server --entry-file=index.html`
 
 To use other HTTP servers:
