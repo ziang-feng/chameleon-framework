@@ -1,5 +1,6 @@
-
 # Chameleon Framework Documentation
+
+![cover image](./img/demo.jpg)
 
 ## Introduction
 
