@@ -273,10 +273,10 @@ export class BreadCrumb extends React.Component {
             };
 
             return (
-                <div className="breadcrumb-show-trail-btn d-flex flex-row">
-                    <div className="my-auto breadcrumb-show-chevron-container mr-2"><i className="fas fa-caret-left fs-08 my-auto"></i></div>
-                    <a className="breadcrumb-show-trail-btn" onClick={action} href={`/${encodeURIComponent(linkURL)}`}>{`Back to ${contentPath.slice(-2)[0]}`}</a>
-                </div>
+                <a className="breadcrumb-show-trail-btn d-flex flex-row" onClick={action} href={linkURL}>
+                    <i className="fas fa-caret-left fs-08 my-auto mr-2"></i>
+                    <span>{`Back to ${contentPath.slice(-2)[0]}`}</span>
+                </a>
             );
         }
         else {
