@@ -12,7 +12,7 @@ Chameleon Framework is a JSON based web-builder framework for building simple in
 
 Setup a Docker container for hosting (Recommended):
 
-- Run the included `setup-docker.sh` script to setup a containerized Apache HTTP Server for hosting
+- Run the included `setup-docker.sh` script to setup a containerized Apache HTTP Server for hosting. Website is available at [localhost:8080](http://localhost:8080).
 - When the website files are changed, run the `update-site-docker.sh` script to update the server with the newer files. Remember to update the version number in meta.json!
 
 Setup other HTTP servers:
