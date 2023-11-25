@@ -14,7 +14,7 @@ Setup a Docker container for hosting (Recommended):
 
 - Run the included `setup-docker.sh` script to setup a containerized Apache HTTP Server for hosting. Website is available at [localhost:8080](http://localhost:8080).
 - When the website files are changed, run the `update-site-docker.sh` script to update the server with the newer files. Remember to update the version number in meta.json!
-- To change the port that the HTTP server is listening on, modify line 19 in `setup-docker.sh`, change 8080 to the desired port in `docker run -dit -p 8080:80`.
+- To change the port that the HTTP server is listening on, modify line 19 in `setup-docker.sh`, change 8080 to the desired port in `docker run -dit -p 8080:80`. You will need to remove the previous chameleon container (if running) and run the setup script again. 
 
 Setup other HTTP servers:
 
